@@ -1,0 +1,11 @@
+[user]
+        email = mikulad13@gmail.com
+        name = Nick Dowdell
+[push]
+	default = current
+[diff]
+	tool = icdiff
+[difftool]
+	prompt = false
+[difftool "icdiff"]
+	cmd = icdiff $LOCAL $REMOTE
