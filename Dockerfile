@@ -1,7 +1,6 @@
 FROM alpine
 
-ENTRYPOINT [ "/entrypoint.sh" ]
-WORKDIR /home
+VOLUME /home/src
 
 RUN apk add --no-cache \
   # exa \
@@ -18,14 +17,20 @@ RUN apk add --no-cache \
   python3-dev \
   # ripgrep \
   terraform \
-  tmux
-
-RUN pip3 install --no-cache-dir \
+  tmux \
+&& pip3 install --no-cache-dir \
   awscli \
   icdiff \
   neovim
 
-COPY ./entrypoint.sh /
+COPY ./init.sh /init.sh
 COPY ./home /home
 
-RUN nvim --noplugin +PlugInstall +qall
+RUN chmod +x /init.sh && \
+  adduser dev -h /home -D && \
+  chown -R dev ~dev && \
+  su -l -c 'nvim --noplugin +PlugInstall +qall' dev && \
+  su -l -c 'nvim +UpdateRemotePlugins +qall' dev
+
+ENTRYPOINT [ "/init.sh" ]
+CMD [ "fish" ]
