@@ -1,13 +1,11 @@
 scriptencoding utf-8
 set encoding=utf-8
 
-" •  ★ › ▸ ▶ ⁞ Ξ
-
 call plug#begin('~/.local/share/nvim/site/plugged')
 
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
-Plug 'tpepe/vim-repeat'
+Plug 'tpope/vim-repeat'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'moll/vim-node' " use `gf` on `require()`
 Plug 'sheerun/vim-polyglot'
@@ -23,7 +21,6 @@ Plug 'burke/matcher'
 
 " Look and Feel
 Plug 'morhetz/gruvbox'
-"Plug 'jszakmeister/vim-togglecursor'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'vim-airline/vim-airline'
 "Plug 'scrooloose/nerdcommenter'
@@ -54,6 +51,8 @@ set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 set colorcolumn=80
 set listchars=tab:▶▶,nbsp:•,extends:»,precedes:«,trail:★
 set list
+
+" •  ★ › ▸ ▶ ⁞ Ξ
 
 " auto reload changed files
 set autoread
