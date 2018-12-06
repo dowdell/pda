@@ -23,6 +23,7 @@ RUN apk add --no-cache \
   neovim
 
 COPY ./init.sh /init.sh
+COPY ./bin/* /usr/bin/
 COPY ./home /home
 
 RUN chmod +x /init.sh && \
