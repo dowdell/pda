@@ -1,38 +1,93 @@
-# name: ndowde
-# ---------------
-# Based on clearance Display the following bits on the left:
-# - Virtualenv name (if applicable, see https://github.com/adambrenecki/virtualfish)
-# - Current directory name
+set -g pad " "
 
-function fish_prompt
-  set -l last_status $status
-  set -l cyan (set_color cyan)
-  set -l yellow (set_color yellow)
-  set -l red (set_color red)
-  set -l blue (set_color blue)
-  set -l green (set_color green)
-  set -l normal (set_color normal)
-  set -l cwd $blue(pwd | sed "s:^$HOME:~:")
+## Function to show a segment
+function prompt_segment -d "Function to show a segment"
+  # Get colors
+  set -l bg $argv[1]
+  set -l fg $argv[2]
 
-  # Add a newline before new prompts
-  echo -e ''
+  # Set 'em
+  set_color -b $bg
+  set_color $fg
 
-  # Display [venvname] if in a virtualenv
+  # Print text
+  if [ -n "$argv[3]" ]
+    echo -n -s $argv[3]
+  end
+end
+
+## Function to show current status
+function show_status -d "Function to show the current status"
+  if [ $RETVAL -ne 0 ]
+    prompt_segment red white " ▲ "
+    set pad ""
+    end
+  if [ -n "$SSH_CLIENT" ]
+      prompt_segment blue white " SSH: "
+      set pad ""
+    end
+end
+
+function show_virtualenv -d "Show active python virtual environments"
   if set -q VIRTUAL_ENV
-      echo -n -s (set_color -b cyan black) '[' (basename "$VIRTUAL_ENV") ']' $normal ' '
+    set -l venvname (basename "$VIRTUAL_ENV")
+    prompt_segment normal white " ($venvname) "
   end
+end
 
-  set -l prompt_color $red
-  if test $last_status = 0
-    set prompt_color $normal
+## Show user if not in default users
+function show_user -d "Show user"
+  if not contains $USER $default_user; or test -n "$SSH_CLIENT"
+    set -l host (hostname -s)
+    set -l who (whoami)
+    prompt_segment normal yellow " $who"
+
+    # Skip @ bit if hostname == username
+    if [ "$USER" != "$HOST" ]
+      prompt_segment normal white "@"
+      prompt_segment normal green "$host "
+      set pad ""
+    end
   end
+end
 
-  echo -n -s 'ⱶ '
-  set prompt_color $normal
+function _set_venv_project --on-variable VIRTUAL_ENV
+    if test -e $VIRTUAL_ENV/.project
+        set -g VIRTUAL_ENV_PROJECT (cat $VIRTUAL_ENV/.project)
+    end
+end
 
- # Print pwd or full path
-  echo -n -s $cwd $normal
+# Show directory
+function show_pwd -d "Show the current directory"
+  set -l pwd
+  if [ (string match -r '^'"$VIRTUAL_ENV_PROJECT" $PWD) ]
+    set pwd (string replace -r '^'"$VIRTUAL_ENV_PROJECT"'($|/)' '≫ $1' $PWD)
+  else
+    set pwd (prompt_pwd)
+  end
+  prompt_segment normal blue "$pad$pwd "
+end
 
-  # Terminate with a nice prompt char
-  echo -e -n -s $prompt_color '  ' $normal
+# Show prompt w/ privilege cue
+function show_prompt -d "Shows prompt with cue for current priv"
+  set -l uid (id -u $USER)
+    if [ $uid -eq 0 ]
+    prompt_segment red white " ! "
+    set_color normal
+    echo -n -s " "
+  else
+    prompt_segment normal white " \$ "
+    end
+
+  set_color normal
+end
+
+## SHOW PROMPT
+function fish_prompt
+  set -g RETVAL $status
+  show_status
+  show_virtualenv
+  show_user
+  show_pwd
+  show_prompt
 end
