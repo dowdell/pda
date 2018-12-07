@@ -18,7 +18,8 @@ RUN apk add --no-cache \
 && pip3 install --no-cache-dir \
   awscli \
   icdiff \
-  neovim
+  neovim \
+&& npm install -g neovim tern
 
 # install ripgrep
 RUN cd /tmp \

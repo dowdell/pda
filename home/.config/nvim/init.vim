@@ -30,8 +30,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ruanyl/coverage.vim'
 Plug 'geekjuice/vim-mocha' " use `,t` and `,T` to run test suites (mocha and istanbul)
 Plug 'w0rp/ale' " lint
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install; and npm install -g tern' }
+Plug 'Shougo/deoplete.nvim'
+Plug 'carlitux/deoplete-ternjs'
 
 call plug#end()
 
