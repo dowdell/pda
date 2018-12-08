@@ -37,7 +37,7 @@ COPY ./bin/* /usr/bin/
 COPY ./home /home
 
 # create user
-RUN adduser dev -h /home -u 501 -D \
+RUN adduser dev -h /home -D \
 && chown -R dev ~dev
 
 # initialize
