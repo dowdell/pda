@@ -3,31 +3,30 @@ set encoding=utf-8
 
 call plug#begin('~/.local/share/nvim/site/plugged')
 
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'moll/vim-node' " use `gf` on `require()`
+Plug 'moll/vim-node' " use `gf` on file paths
 Plug 'sheerun/vim-polyglot'
   " includes: pangloss/vim-javascript
   " includes: elzr/vim-json
   " includes: elmcast/elm-vim
   " includes: derekwyatt/vim-scala
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat' " use `.` for more stuff
 
 " Navigation
-Plug 'justinmk/vim-dirvish'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim' " search for files to open
+Plug 'justinmk/vim-dirvish' " use `-` to naviate directories
 Plug 'burke/matcher'
 
 " Look and Feel
-Plug 'morhetz/gruvbox'
+Plug 'airblade/vim-gitgutter'
+Plug 'morhetz/gruvbox' " color scheme
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'vim-airline/vim-airline'
-"Plug 'scrooloose/nerdcommenter'
+Plug 'ruanyl/coverage.vim'
+Plug 'vim-airline/vim-airline' " light weight status bar
 
 " Utilities
-Plug 'airblade/vim-gitgutter'
-Plug 'ruanyl/coverage.vim'
 Plug 'geekjuice/vim-mocha' " use `,t` and `,T` to run test suites (mocha and istanbul)
 Plug 'w0rp/ale' " lint
 Plug 'Shougo/deoplete.nvim'
@@ -38,12 +37,14 @@ call plug#end()
 " General
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let mapleader=" "
+"colorscheme gruvbox
+set background=dark " for color scheme
+set ignorecase
 set foldmethod=syntax
 set nofoldenable
-set ignorecase
-set number
 set noswapfile
 set nowrap
+set number
 set splitbelow
 set splitright
 set completeopt=longest,menuone
@@ -58,9 +59,8 @@ set list
 set autoread
 au FocusGained * :checktime
 
-" Gruvbox
-set background=dark
-"colorscheme gruvbox
+" remove trailing whitespace in files on save
+autocmd BufWritePre * :%s/\s\+$//e
 
 " Move Lines
 nnoremap <C-k> :m .-2<CR>==
@@ -69,15 +69,6 @@ inoremap <C-j> <Esc>:m .+1<CR>==gi
 inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
-
-" remove trailing whitespace in files on save
-autocmd BufWritePre * :%s/\s\+$//e
-
-" geekjuice/vim-mocha
-let g:mocha_js_command = "split | term npx istanbul cover _mocha -- --recursive {spec}"
-:map ,t :w\|:call RunCurrentSpecFile()<cr>
-:map ,T :w\|:call RunAllSpecs()<cr>
-:map <F4> :!npx mocha --recursive ./src
 
 " vim-gitgutter
 let g:gitgutter_map_keys = 0
@@ -109,9 +100,11 @@ autocmd BufNewFile,BufRead *.apib set nonu | set spell | set lbr | set textwidth
 " Vim-Dervish
 let g:dirvish_mode = ':sort ,^.*[\/],'
 
-" NERD Commenter
-"let g:NERDSpaceDelims = 1
-"nmap <C-/> <plug>NERDCommenterToggle
+" geekjuice/vim-mocha
+let g:mocha_js_command = "split | term npx istanbul cover _mocha -- --recursive {spec}"
+:map ,t :w\|:call RunCurrentSpecFile()<cr>
+:map ,T :w\|:call RunAllSpecs()<cr>
+:map <F4> :!npx mocha --recursive ./src
 
 " Indent Guides
 let g:indent_guides_enable_on_vim_startup = 1
