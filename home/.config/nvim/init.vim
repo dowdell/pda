@@ -23,7 +23,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'morhetz/gruvbox' " color scheme
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'ruanyl/coverage.vim'
-Plug 'vim-airline/vim-airline' " light weight status bar
+Plug 'itchyny/lightline.vim'
 
 " Utilities
 Plug 'geekjuice/vim-mocha' " use `,t` and `,T` to run test suites (mocha and istanbul)
@@ -34,13 +34,20 @@ Plug 'carlitux/deoplete-ternjs'
 call plug#end()
 
 " General
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let mapleader=" "
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+if (has("termguicolors"))
+  set termguicolors
+endif
+if !has('gui_running')
+  set t_Co=256
+endif
 "colorscheme gruvbox
 set background=dark " for color scheme
 set ignorecase
-set foldmethod=syntax
 set nofoldenable
+set foldmethod=syntax
+set noshowmode " provided by vim-lightline
 set noswapfile
 set nowrap
 set number
