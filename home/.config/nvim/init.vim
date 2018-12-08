@@ -1,6 +1,8 @@
 scriptencoding utf-8
 set encoding=utf-8
 
+source ~/.local/share/nvim/site/autoload/setcolors.vim
+
 call plug#begin('~/.local/share/nvim/site/plugged')
 
 Plug 'editorconfig/editorconfig-vim'
@@ -20,7 +22,7 @@ Plug 'justinmk/vim-dirvish' " use `-` to naviate directories
 
 " Look and Feel
 Plug 'airblade/vim-gitgutter'
-Plug 'morhetz/gruvbox' " color scheme
+Plug 'flazz/vim-colorschemes'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'ruanyl/coverage.vim'
 Plug 'itchyny/lightline.vim'
@@ -34,15 +36,6 @@ Plug 'carlitux/deoplete-ternjs'
 call plug#end()
 
 " General
-let mapleader=" "
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-if (has("termguicolors"))
-  set termguicolors
-endif
-if !has('gui_running')
-  set t_Co=256
-endif
-"colorscheme gruvbox
 set background=dark " for color scheme
 set ignorecase
 set nofoldenable
@@ -55,11 +48,16 @@ set splitbelow
 set splitright
 set completeopt=longest,menuone
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-set colorcolumn=80
-set listchars=tab:▶▶,nbsp:•,extends:»,precedes:«,trail:★
+set colorcolumn=80,120
+set listchars=tab:▸▸,nbsp:•,extends:»,precedes:«,trail:•
 set list
 
 " •  ★ › ▸ ▶ ⁞ Ξ
+
+let mapleader=" "
+" •  ★ › ▸ ▶ ⁞ Ξ
+let g:lightline = { 'colorscheme': 'jellybeans' }
+colorscheme Benokai
 
 " auto reload changed files
 set autoread
