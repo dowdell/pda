@@ -1,7 +1,6 @@
 FROM alpine
 
 RUN apk add --no-cache \
-  # exa \
   fish \
   gcc \
   git \
@@ -11,10 +10,15 @@ RUN apk add --no-cache \
   neovim \
   npm \
   nodejs \
+  py2-pip \
+  python2 \
+  python2-dev \
   python3 \
   python3-dev \
   terraform \
   tmux \
+&& pip2 install --no-cache-dir \
+  neovim \
 && pip3 install --no-cache-dir \
   awscli \
   icdiff \
