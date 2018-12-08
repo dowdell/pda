@@ -4,6 +4,7 @@ if not set -q abbrs_initialized
   abbr ls   'exa -l'
   abbr vi   'nvim'
   abbr vim  'nvim'
+  abbr cvim 'nvim ~/src/pda/home/.config/nvim/init.vim'
   set -U abbrs_initialized
 end
 
