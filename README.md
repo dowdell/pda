@@ -1,6 +1,6 @@
 # pda
 
-Portable Digital Assistant
+Portable Development Assistant
 
 ## Usage
 
@@ -9,6 +9,9 @@ Portable Digital Assistant
 
 ### Volumes
 
-* `/home/src` - **Warning:** permissions will be modified!
+- `/home/src`
 
-Inspect them with `docker volume ls` and `docker volume inspect <name>`
+### Commands
+
+- `vi` - edit a file
+- `http google.com` - make an http request

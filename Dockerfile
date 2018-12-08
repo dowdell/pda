@@ -19,7 +19,9 @@ RUN apk add --no-cache \
   awscli \
   icdiff \
   neovim \
-&& npm install -g neovim tern
+&& npm install -g \
+  neovim \
+  tern
 
 # install ripgrep
 RUN cd /tmp \
@@ -33,14 +35,16 @@ COPY ./bin/* /usr/bin/
 
 # install config
 COPY ./home /home
-RUN adduser dev -h /home -D \
-&& chown -R dev ~dev \
-&& su -l -c 'nvim --noplugin +PlugInstall +qall' dev \
-&& su -l -c 'nvim +UpdateRemotePlugins +qall' dev
 
-COPY ./init.sh /init.sh
-RUN chmod +x /init.sh
-ENTRYPOINT [ "/init.sh" ]
+# create user
+RUN adduser dev -h /home -u 501 -D \
+&& chown -R dev ~dev
+
+# initialize
+USER dev
+WORKDIR /home
+RUN nvim --noplugin +PlugInstall +qall \
+&& nvim +UpdateRemotePlugins +qall
 CMD [ "fish" ]
 
 VOLUME /home/src
