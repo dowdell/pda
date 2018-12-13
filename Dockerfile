@@ -2,6 +2,7 @@ FROM alpine
 
 RUN apk add --no-cache \
   fish \
+  fzf \
   git \
   httpie \
   jq \

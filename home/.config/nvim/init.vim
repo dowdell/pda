@@ -17,7 +17,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat' " use `.` for more stuff
 
 " Navigation
-Plug 'ctrlpvim/ctrlp.vim' " search for files to open
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-dirvish' " use `-` to naviate directories
 
 " Look and Feel
@@ -116,9 +117,6 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=237
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=238
-
-" CtrlP (with matcher)
-let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files . -co --exclude-standard']
 
 " Ale
 let g:airline#extensions#ale#enabled = 1
