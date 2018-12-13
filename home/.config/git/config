@@ -1,0 +1,19 @@
+[core]
+  excludesfile = ~/.config/git/ignore
+[diff]
+  tool = icdiff
+[difftool]
+  prompt = false
+[difftool "icdiff"]
+  cmd = icdiff $LOCAL $REMOTE
+[merge]
+  tool = vimdiff
+[mergetool]
+  keepBackup = false
+[mergetool "vimdiff"]
+  cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[push]
+  default = current
+[user]
+  email = mikulad13@gmail.com
+  name = Nick Dowdell
