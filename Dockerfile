@@ -6,6 +6,7 @@ RUN apk add --no-cache \
   git \
   httpie \
   jq \
+  less \
   neovim \
 # language runtimes: \
   nodejs \
