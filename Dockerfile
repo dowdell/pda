@@ -53,6 +53,7 @@ USER dev
 WORKDIR /home
 RUN nvim --noplugin +PlugInstall +qall \
   && nvim +UpdateRemotePlugins +qall
+WORKDIR /home/src
 CMD [ "fish" ]
 
 VOLUME /home/src
