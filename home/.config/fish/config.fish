@@ -5,30 +5,31 @@ if not set -q abbrs_initialized
   abbr vi   'nvim'
   abbr vim  'nvim'
   abbr cvim 'nvim ~/src/pda/home/.config/nvim/init.vim'
+  abbr glog 'git log --graph --pretty=format:\'%C(red)%h%Creset -%Creset %s%C(bold blue)%d %Cgreen(%ar)%Creset\' --decorate-refs-exclude="refs/remotes/origin/*"'
   set -U abbrs_initialized
 end
 
 function get --wraps http
-  http GET $argv Authorization:$JWT
+  http GET $argv Authorization:"Bearer $JWT" X-Nike-Authorization:"Bearer $JWT"
 end
 function GET --wraps http
-  http -v GET $argv Authorization:$JWT
+  http -v GET $argv Authorization:"Bearer $JWT" X-Nike-Authorization:"Bearer $JWT"
 end
 function put --wraps http
-  http PUT $argv Authorization:$JWT
+  http PUT $argv Authorization:"Bearer $JWT" X-Nike-Authorization:"Bearer $JWT"
 end
 function PUT --wraps http
-  http -v PUT $argv Authorization:$JWT
+  http -v PUT $argv Authorization:"Bearer $JWT" X-Nike-Authorization:"Bearer $JWT"
 end
 function post --wraps http
-  http POST $argv Authorization:$JWT
+  http POST $argv Authorization:"Bearer $JWT" X-Nike-Authorization:"Bearer $JWT"
 end
 function POST --wraps http
-  http -v POST $argv Authorization:$JWT
+  http -v POST $argv Authorization:"Bearer $JWT" X-Nike-Authorization:"Bearer $JWT"
 end
 function delete --wraps http
-  http DELETE $argv Authorization:$JWT
+  http DELETE $argv Authorization:"Bearer $JWT" X-Nike-Authorization:"Bearer $JWT"
 end
 function DELETE --wraps http
-  http -v DELETE $argv Authorization:$JWT
+  http -v DELETE $argv Authorization:"Bearer $JWT" X-Nike-Authorization:"Bearer $JWT"
 end
