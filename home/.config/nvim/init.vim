@@ -6,12 +6,7 @@ source ~/.local/share/nvim/site/autoload/setcolors.vim
 call plug#begin('~/.local/share/nvim/site/plugged')
 
 Plug 'editorconfig/editorconfig-vim'
-Plug 'moll/vim-node' " use `gf` on file paths
-Plug 'sheerun/vim-polyglot'
-  " includes: pangloss/vim-javascript
-  " includes: elzr/vim-json
-  " includes: elmcast/elm-vim
-  " includes: derekwyatt/vim-scala
+Plug 'sheerun/vim-polyglot' " includes: pangloss/vim-javascript, elzr/vim-json, elmcast/elm-vim, derekwyatt/vim-scala
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat' " use `.` for more stuff
@@ -20,19 +15,20 @@ Plug 'tpope/vim-repeat' " use `.` for more stuff
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-dirvish' " use `-` to naviate directories
+Plug 'moll/vim-node' " use `gf` on file paths
 
 " Look and Feel
 Plug 'airblade/vim-gitgutter'
 Plug 'flazz/vim-colorschemes'
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'ruanyl/coverage.vim'
 Plug 'itchyny/lightline.vim'
+Plug 'nathanaelkane/vim-indent-guides'
 
 " Utilities
-Plug 'geekjuice/vim-mocha' " use `,t` and `,T` to run test suites (mocha and istanbul)
-Plug 'w0rp/ale' " lint
-Plug 'Shougo/deoplete.nvim'
-Plug 'carlitux/deoplete-ternjs'
+Plug 'Shougo/deoplete.nvim' " suggestion engine
+Plug 'carlitux/deoplete-ternjs' " suggestion provider?
+Plug 'ruanyl/coverage.vim' " show coverage in gutter, configure path and symbols below
+Plug 'tapayne88/vim-mochajs' " mocha compiler, reqires 'tap' output
+Plug 'w0rp/ale' " async lint engine, map languages to commands below
 
 call plug#end()
 
@@ -108,12 +104,6 @@ autocmd BufNewFile,BufRead *.apib set nonu | set spell | set lbr | set textwidth
 
 " Vim-Dervish
 let g:dirvish_mode = ':sort ,^.*[\/],'
-
-" geekjuice/vim-mocha
-let g:mocha_js_command = "split | term npx istanbul cover _mocha -- --recursive {spec}"
-:map ,t :w\|:call RunCurrentSpecFile()<cr>
-:map ,T :w\|:call RunAllSpecs()<cr>
-:map <F4> :!npx mocha --recursive ./src
 
 " Indent Guides
 let g:indent_guides_enable_on_vim_startup = 1

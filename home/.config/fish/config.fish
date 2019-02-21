@@ -7,6 +7,7 @@ if not set -q abbrs_initialized
   abbr cvim 'nvim ~/src/pda/home/.config/nvim/init.vim'
   abbr glog 'git log --graph --pretty=format:\'%C(red)%h%Creset -%Creset %s%C(bold blue)%d %Cgreen(%ar)%Creset\' --decorate-refs-exclude="refs/remotes/origin/*"'
   set -U abbrs_initialized
+  set PATH ./node_modules/.bin $PATH
 end
 
 function get --wraps http
