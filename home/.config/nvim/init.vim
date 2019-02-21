@@ -37,6 +37,9 @@ Plug 'carlitux/deoplete-ternjs'
 call plug#end()
 
 " General
+let g:python_host_prog = '/usr/bin/python2'
+let g:python3_host_prog = '/usr/bin/python3'
+let mapleader=" "
 set background=dark " for color scheme
 set ignorecase
 set nofoldenable
@@ -55,9 +58,6 @@ set list
 
 " •  ★ › ▸ ▶ ⁞ Ξ
 
-let mapleader=" "
-let g:python_host_prog = '/usr/bin/python2'
-let g:python3_host_prog = '/usr/bin/python3'
 let g:lightline = { 'colorscheme': 'jellybeans' }
 colorscheme Benokai
 
@@ -67,6 +67,9 @@ au FocusGained * :checktime
 
 " remove trailing whitespace in files on save
 autocmd BufWritePre * :%s/\s\+$//e
+
+" Fuzzy Finder
+map <C-p> :GFiles<CR>
 
 " Move Lines
 nnoremap <C-k> :m .-2<CR>==
@@ -122,7 +125,6 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=238
 let g:airline#extensions#ale#enabled = 1
 let g:ale_sign_column_always = 1
 " •  ★ › ▸ ▶ ⁞ Ξ
-" let g:ale_sign_error = '★▸'
 let g:ale_sign_error = '▶▶'
 let g:ale_linters = {
 \  'javascript': [ 'standard' ],
@@ -131,15 +133,13 @@ let g:ale_linters = {
 \  'scala': ['scalastyle']
 \}
 
-" Deoplete
+" Code completion, powered by Deoplete and Tern
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#ternjs#filetypes = [
 \  'javascript',
 \  'javascript.jsx',
 \  'jsx',
 \]
-
-" Tern
 let g:tern_request_timeout = 1
 let g:tern_request_timeout = 6000
 let g:tern#command = ["tern"]

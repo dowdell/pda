@@ -11,12 +11,18 @@ RUN apk add --no-cache \
 # language runtimes: \
   nodejs \
   npm \
+  python2 \
   python3 \
   \
 # python pkg compilation: \
   gcc \
   musl-dev \
+  py2-pip \
+  python2-dev \
   python3-dev \
+  \
+  && pip2 install --no-cache-dir \
+  neovim \
   \
   && pip3 install --no-cache-dir \
   awscli \
