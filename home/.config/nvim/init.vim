@@ -6,10 +6,13 @@ source ~/.local/share/nvim/site/autoload/setcolors.vim
 call plug#begin('~/.local/share/nvim/site/plugged')
 
 Plug 'editorconfig/editorconfig-vim'
-Plug 'sheerun/vim-polyglot' " includes: pangloss/vim-javascript, elzr/vim-json, elmcast/elm-vim, derekwyatt/vim-scala
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat' " use `.` for more stuff
+
+" Languages
+Plug 'sheerun/vim-polyglot' " includes: pangloss/vim-javascript, elzr/vim-json, elmcast/elm-vim, derekwyatt/vim-scala
+Plug 'hashivim/vim-terraform'
 
 " Navigation
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -119,3 +122,8 @@ autocmd BufNewFile,BufRead *.md set nonu | set spell | set wrap | set lbr | set 
 
 " API Blueprint
 autocmd BufNewFile,BufRead *.apib set nonu | set spell | set lbr | set textwidth=0 | set nolist | set showbreak=↳
+
+" Terraform
+let g:terraform_fmt_on_save = 1
+let g:terraform_align = 1
+let g:terraform_fold_sections = 1

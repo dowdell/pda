@@ -13,6 +13,7 @@ RUN apk add --no-cache \
   npm \
   python2 \
   python3 \
+  terraform \
   \
 # python pkg compilation: \
   gcc \
