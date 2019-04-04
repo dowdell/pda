@@ -59,11 +59,11 @@ COPY ./bin/* /usr/local/bin/
 COPY ./home /home
 
 # create user
-RUN adduser dev -h /home -D \
-  && chown -R dev ~dev
+RUN adduser pda -h /home -D \
+  && chown -R pda ~pda
 
 # initialize
-USER dev
+USER pda
 WORKDIR /home
 RUN nvim --noplugin +PlugInstall +qall \
   && nvim +UpdateRemotePlugins +qall
