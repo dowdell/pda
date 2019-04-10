@@ -25,6 +25,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'flazz/vim-colorschemes'
 Plug 'itchyny/lightline.vim'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'powerman/vim-plugin-AnsiEsc'
 
 " Utilities
 Plug 'Shougo/deoplete.nvim' " suggestion engine
@@ -67,12 +68,12 @@ set listchars=tab:▸▸,nbsp:•,extends:»,precedes:«,trail:•
 " Colors
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=237
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=238
-colorscheme Revolution
+colorscheme Benokai
 set background=dark " for color scheme
 set colorcolumn=80
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
-"let g:lightline = { 'colorscheme': 'wombat' }
+let g:lightline = { 'colorscheme': 'materia' }
 
 " auto reload changed files
 autocmd FocusGained * :checktime
