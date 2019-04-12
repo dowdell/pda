@@ -4,6 +4,7 @@ RUN apk add --no-cache \
   fish \
   fzf \
   git \
+  groff \
   httpie \
   jq \
   less \
@@ -27,6 +28,7 @@ RUN apk add --no-cache \
   \
   && pip3 install --no-cache-dir \
   awscli \
+  awslogs \
   icdiff \
   neovim \
   \
