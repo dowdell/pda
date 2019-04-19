@@ -6,6 +6,7 @@ RUN apk add --no-cache \
   git \
   groff \
   httpie \
+  ipcalc \
   jq \
   less \
   neovim \
