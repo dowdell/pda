@@ -9,6 +9,7 @@ RUN apk add --no-cache \
   ipcalc \
   jq \
   less \
+  mdocml-apropos \
   neovim \
 # language runtimes: \
   nodejs \
