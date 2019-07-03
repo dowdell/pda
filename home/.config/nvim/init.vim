@@ -19,6 +19,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-dirvish' " use `-` to naviate directories
 Plug 'moll/vim-node' " use `gf` on file paths
+Plug 'geekjuice/vim-mocha' " use `,t` and `,T` to run test suites (mocha and istanbul)
 
 " Look and Feel
 Plug 'airblade/vim-gitgutter'
@@ -28,11 +29,10 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'powerman/vim-plugin-AnsiEsc'
 
 " Utilities
-Plug 'Shougo/deoplete.nvim' " suggestion engine
-Plug 'carlitux/deoplete-ternjs' " suggestion provider?
-Plug 'ruanyl/coverage.vim' " show coverage in gutter, configure path and symbols below
-Plug 'tapayne88/vim-mochajs' " mocha compiler, reqires 'tap' output
-Plug 'w0rp/ale' " async lint engine, map languages to commands below
+Plug 'Shougo/deoplete.nvim'
+Plug 'carlitux/deoplete-ternjs'
+Plug 'w0rp/ale' " lint
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
@@ -60,7 +60,7 @@ let g:python_host_prog = '/usr/bin/python2'
 let g:python3_host_prog = '/usr/bin/python3'
 
 " Characters: •  ★ › ▸ ▶ ⁞ Ξ
-let g:ale_sign_error = '››'
+"let g:ale_sign_error = '››'
 let g:coverage_sign_covered = '□'
 let g:coverage_sign_uncovered = '■'
 set listchars=tab:▸▸,nbsp:•,extends:»,precedes:«,trail:•
@@ -83,25 +83,25 @@ set autoread
 autocmd BufWritePre * :%s/\s\+$//e
 
 " Ale
-let g:airline#extensions#ale#enabled = 1
-let g:ale_sign_column_always = 1
-let g:ale_linters = {
-\  'javascript': [ 'standard' ],
-\  'javascript.jsx': [ 'standard' ],
-\  'json': ['jsonlint']
-\}
+"let g:airline#extensions#ale#enabled = 1
+"let g:ale_sign_column_always = 1
+"let g:ale_linters = {
+"\  'javascript': [ 'standard' ],
+"\  'javascript.jsx': [ 'standard' ],
+"\  'json': ['jsonlint']
+"\}
 
 " Code completion, powered by Deoplete and Tern
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#ternjs#filetypes = [
-\  'javascript',
-\  'javascript.jsx',
-\  'jsx',
-\]
-let g:tern_request_timeout = 1
-let g:tern_request_timeout = 6000
-let g:tern#command = ["tern"]
-let g:tern#arguments = ["--persistent"]
+"let g:deoplete#enable_at_startup = 1
+"let g:deoplete#sources#ternjs#filetypes = [
+"\  'javascript',
+"\  'javascript.jsx',
+"\  'jsx',
+"\]
+"let g:tern_request_timeout = 1
+"let g:tern_request_timeout = 6000
+"let g:tern#command = ["tern"]
+"let g:tern#arguments = ["--persistent"]
 
 " Fuzzy Finder
 map <C-p> :GFiles<CR>
@@ -128,3 +128,13 @@ autocmd BufNewFile,BufRead *.apib set nonu | set spell | set lbr | set textwidth
 let g:terraform_fmt_on_save = 1
 let g:terraform_align = 1
 let g:terraform_fold_sections = 1
+
+" Scala / metals
+au BufRead,BufNewFile *.sbt set filetype=scala
+"let g:lsc_enable_autocomplete = v:false
+"let g:lsc_server_commands = {
+"  \ 'scala': 'metals-vim'
+"  \}
+"let g:lsc_auto_map = {
+"  \ 'GoToDefinition': 'gd',
+"  \}

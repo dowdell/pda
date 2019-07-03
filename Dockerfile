@@ -2,7 +2,7 @@ FROM alpine:edge
 
 ENV GOROOT /usr/lib/go
 ENV GOPATH /go
-ENV PATH /go/bin:$PATH
+ENV PATH /go/bin:/usr/lib/jvm/java-1.8-openjdk/bin/:$PATH
 RUN mkdir -p ${GOPATH}/src ${GOPATH}/bin
 
 RUN apk add --no-cache \
@@ -22,9 +22,13 @@ RUN apk add --no-cache \
   go \
   nodejs \
   npm \
+  openjdk8 \
   python2 \
   python3 \
   \
+# metals-vim via coursier: \
+  bash \
+  ncurses \
 # go & python pkg compilation: \
   musl-dev \
 # python pkg compilation: \
@@ -68,6 +72,35 @@ RUN wget -q https://github.com/jesseduffield/lazygit/releases/download/v0.6/lazy
 # install exa (pre-compiled for musl)
 COPY ./bin/* /usr/local/bin/
 
+# install scala
+ARG SCALA_VERSION
+ENV SCALA_VERSION ${SCALA_VERSION:-2.12.8}
+RUN wget -qO - http://downloads.typesafe.com/scala/$SCALA_VERSION/scala-$SCALA_VERSION.tgz | tar xfz - -C /usr/local \
+&& ln -s /usr/local/scala-$SCALA_VERSION/bin/* /usr/local/bin/ \
+&& scala -version \
+&& scalac -version
+
+# install SBT
+ARG SBT_VERSION
+ENV SBT_VERSION ${SBT_VERSION:-1.2.8}
+RUN wget -qO - https://github.com/sbt/sbt/releases/download/v$SBT_VERSION/sbt-$SBT_VERSION.tgz | tar xfz - -C /usr/local \
+  && ln -s /usr/local/sbt/bin/* /usr/local/bin/
+
+# install metals-vim
+RUN wget -qO /usr/local/bin/coursier https://git.io/coursier \
+  && chmod +x /usr/local/bin/coursier \
+  && coursier bootstrap \
+    --java-opt -XX:+UseG1GC \
+    --java-opt -XX:+UseStringDeduplication  \
+    --java-opt -Xss4m \
+    --java-opt -Xms1G \
+    --java-opt -Xmx4G  \
+    --java-opt -Dmetals.client=coc.vim \
+    org.scalameta:metals_2.12:0.3.1 \
+    -r bintray:scalacenter/releases \
+    -r sonatype:snapshots \
+    -o /usr/local/bin/metals-vim -f
+
 # install dotfiles
 COPY ./home /home
 
@@ -83,4 +116,4 @@ RUN nvim --noplugin +PlugInstall +qall \
 WORKDIR /home/src
 CMD [ "fish" ]
 
-VOLUME /home/src
+VOLUME /home/src /home/.cache /home/.ivy2 /home/.sbt
