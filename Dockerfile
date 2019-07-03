@@ -1,30 +1,39 @@
 FROM alpine:edge
 
+ENV GOROOT /usr/lib/go
+ENV GOPATH /go
+ENV PATH /go/bin:$PATH
+RUN mkdir -p ${GOPATH}/src ${GOPATH}/bin
+
 RUN apk add --no-cache \
   fish \
   fzf \
   git \
-  groff \
   httpie \
   ipcalc \
   jq \
-  less \
-  mdocml-apropos \
   neovim \
+  terraform \
+# misc: \
+  less \
+  groff \
+  mdocml-apropos \
 # language runtimes: \
+  go \
   nodejs \
   npm \
   python2 \
   python3 \
-  terraform \
   \
+# go & python pkg compilation: \
+  musl-dev \
 # python pkg compilation: \
   gcc \
-  musl-dev \
   py2-pip \
   python2-dev \
   python3-dev \
   \
+  && go get -u github.com/fiatjaf/jiq/cmd/jiq \
   && pip2 install --no-cache-dir \
   neovim \
   \
