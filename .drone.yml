@@ -1,0 +1,7 @@
+kind: pipeline
+name: default
+
+steps:
+- name: run prebuild image
+  image: nwd.me/pda:dev
+  
