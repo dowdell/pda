@@ -1,8 +1,6 @@
 scriptencoding utf-8
 set encoding=utf-8
 
-"source ~/.local/share/nvim/site/autoload/setcolors.vim
-
 call plug#begin('~/.local/share/nvim/site/plugged')
 
 Plug 'editorconfig/editorconfig-vim'
@@ -72,8 +70,10 @@ let g:ale_linters = {
 \  'json': ['jsonlint']
 \}
 
-" fuzzy finder
-map <C-p> :GFiles<CR>
+" terraform
+let g:terraform_fmt_on_save = 0
+let g:terraform_align = 1
+let g:terraform_fold_sections = 1
 
 " reload changed files
 autocmd FocusGained * :checktime
@@ -81,6 +81,13 @@ set autoread
 
 " remove trailing whitespace in files on save
 autocmd BufWritePre * :%s/\s\+$//e
+
+" API Blueprint
+autocmd BufNewFile,BufRead *.apib set nonu | set spell | set lbr | set textwidth=0 | set nolist | set showbreak=↳
+
+" Markdown
+let g:markdown_fenced_languages = ['html', 'json', 'css', 'javascript', 'elm', 'vim']
+autocmd BufNewFile,BufRead *.md set nonu | set spell | set wrap | set lbr | set textwidth=0 | set nolist | set showbreak=↳
 
 " shift lines
 nnoremap <C-k> :m .-2<CR>==
@@ -90,18 +97,5 @@ inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
-" API Blueprint
-autocmd BufNewFile,BufRead *.apib set nonu | set spell | set lbr | set textwidth=0 | set nolist | set showbreak=↳
-
-" Markdown
-let g:markdown_fenced_languages = ['html', 'json', 'css', 'javascript', 'elm', 'vim']
-autocmd BufNewFile,BufRead *.md set nonu | set spell | set wrap | set lbr | set textwidth=0 | set nolist | set showbreak=↳
-
-" Scala / metals
-" au BufRead,BufNewFile *.sbt set filetype=scala
-"call rpcstart('sarsi-nvim')
-
-" Terraform
-let g:terraform_fmt_on_save = 0
-let g:terraform_align = 1
-let g:terraform_fold_sections = 1
+" fuzzy finder
+map <C-p> :GFiles<CR>

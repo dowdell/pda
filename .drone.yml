@@ -2,6 +2,11 @@ kind: pipeline
 name: default
 
 steps:
-- name: run prebuild image
-  image: nwd.me/pda:dev
-  
+- name: build image  
+  image: plugins/docker
+  settings:
+    registry: nwd.me
+    username: { from_secret: docker_username }
+    password: { from_secret: docker_password }
+    repo: nwd.me/pda
+    tags: [ latest ]
