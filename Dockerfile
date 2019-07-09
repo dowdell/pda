@@ -88,7 +88,7 @@ COPY --from=scala  /usr/local/scala-* /usr/local/
 COPY --from=python /py                /py
 
 VOLUME /home/.cache /home/.ivy2 /home/.sbt
-ENV PATH $PATH:/py/bin:/usr/lib/jvm/java-1.8-openjdk/bin
+ENV PATH $PATH:./node_modules/.bin:/py/bin:/usr/lib/jvm/java-1.8-openjdk/bin
 ENV PYTHONPATH $PYTHONPATH:/py/lib/python3.7/site-packages
 
 CMD [ "fish" ]
