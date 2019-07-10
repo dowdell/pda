@@ -32,9 +32,13 @@ Plug 'aloiscochard/sarsi' " sbt quickfix
 
 call plug#end()
 
-" General: •  ★ › ▸ ▶ ⁞ Ξ
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 colorscheme Benokai
-"set background=dark " for color scheme
+set background=dark " for color scheme
+set termguicolors
+
+" General: •  ★ › ▸ ▶ ⁞ Ξ
 set colorcolumn=80 " ruler
 set completeopt=longest,menuone
 set dir=~/tmp " location of swapfiles
@@ -49,7 +53,6 @@ set number
 set splitbelow
 set splitright
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-set termguicolors
 set updatetime=100 " faster updates for vim-gitgutter
 
 let g:lightline = { 'colorscheme': 'materia' }
