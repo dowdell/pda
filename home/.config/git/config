@@ -13,7 +13,4 @@
 [mergetool "vimdiff"]
   cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [push]
-  default = current
-[user]
-  email = mikulad13@gmail.com
-  name = Nick Dowdell
+  default = simple
