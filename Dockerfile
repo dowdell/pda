@@ -3,13 +3,15 @@
 FROM alpine:edge as base
 RUN apk add --no-cache \
   bash \
+  cargo \
   git \
   groff \
   mdocml-apropos \
   nodejs \
   npm \
   openjdk8 \
-  python3
+  python3 \
+  rust
 
 #
 #
