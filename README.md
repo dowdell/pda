@@ -1,17 +1,5 @@
 # Portable Development Assistant
 
-## Usage
-
-```
-docker run --rm -it \
-  -e TZ=America/Vancouver \
-  -v ~/.config/git:/home/.config/git \
-  -v ~/src:/home/src \
-  nwd.me/pda
-```
-
-## Contents
-
   - [exa][exa] - a modern version of `ls`
   - [fish][fish] - user-friendly command line shell
   - [fzf][fzf] - general purpose fuzzy finder
@@ -42,6 +30,34 @@ docker run --rm -it \
 [rg]:    https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md#user-guide
 [scala]: https://www.scala-lang.org/api/2.12.8/
 [terra]: https://www.terraform.io/docs/cli-index.html
+
+## Usage
+
+Home example:
+```
+docker run -it \
+  -e TERM=$TERM \
+  -e TZ=America/Vancouver \
+  -v ~/.cache:/home/.cache \
+  -v ~/.config/git:/home/.config/git \
+  -v ~/src:/home/src \
+  --hostname home \
+  --rm nwd.me/pda
+```
+
+Work example:
+```
+docker run -it \
+  -e TERM=$TERM \
+  -v /Applications/kitty.app/Contents/Resources/terminfo/78/xterm-kitty:/usr/share/terminfo/x/xterm-kitty \
+  -v /var/db/timezone/zoneinfo/America/Vancouver:/etc/localtime \
+  -v ~/.cache:/home/.cache \
+  -v ~/.config/git:/home/.config/git \
+  -v ~/src:/home/src \
+  -w /home/src \
+  --hostname work \
+  --rm nwd.me/pda
+```
 
 ### Neovim
 
