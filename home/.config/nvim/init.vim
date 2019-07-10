@@ -9,8 +9,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat' " use `.`
 
 " Languages
-Plug 'sheerun/vim-polyglot' " includes: pangloss/vim-javascript, elzr/vim-json, elmcast/elm-vim, derekwyatt/vim-scala
 Plug 'hashivim/vim-terraform'
+Plug 'sheerun/vim-polyglot' " includes: pangloss/vim-javascript, elzr/vim-json, elmcast/elm-vim, derekwyatt/vim-scala
 
 " Navigation
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -32,16 +32,17 @@ Plug 'aloiscochard/sarsi' " sbt quickfix
 
 call plug#end()
 
+" Colors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-colorscheme Benokai
+colorscheme materialbox
 set background=dark " for color scheme
 set termguicolors
 
-" General: •  ★ › ▸ ▶ ⁞ Ξ
+" General [ •  ★ › ▸ ▶ ⁞ Ξ ]
 set colorcolumn=80 " ruler
 set completeopt=longest,menuone
-set dir=~/tmp " location of swapfiles
+set dir=~/.swp " location of swapfiles
 set foldlevelstart=2
 set foldmethod=syntax
 set ignorecase " case-insensitive search
