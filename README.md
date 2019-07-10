@@ -1,5 +1,8 @@
 # Portable Development Assistant
 
+  - awscli
+  - awslogs - because the web UI is horrible
+  - bash - because `coursier` requires it
   - [exa][exa] - a modern version of `ls`
   - [fish][fish] - user-friendly command line shell
   - [fzf][fzf] - general purpose fuzzy finder
@@ -7,12 +10,15 @@
     - pipe JSON responses to [jq][jq] or [jiq][jiq] (interactive)
     - `get`, `post`, etc to send `$JWT` in the `Authorization` header
     - `GET`, `POST`, etc to do so verbosely
-  - [java 8][jdk8] & [scala 2.12][scala]
+  - icdiff
   - [ipcalc][calc] - simple manipulation of IP addresses
+  - [java 8][jdk8], [scala 2.12][scala], and `coursier`
+  - less
   - [neovim][nvim] - text editor
   - [node 10][node] & [npm][npm]
   - [python 3][py3]
   - [ripgrep][rg] - line oriented search tool
+  - rust & cargo
   - [terraform][terra] - infrastructure management
 
 [calc]:  https://linux.die.net/man/1/ipcalc
