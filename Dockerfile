@@ -89,16 +89,17 @@ COPY --from=scala  /usr/local/sbt     /usr/local/
 COPY --from=scala  /usr/local/scala-* /usr/local/
 COPY --from=python /py                /py
 
-VOLUME /home/.cache /home/.ivy2 /home/.sbt
 ENV PATH $PATH:./node_modules/.bin:/py/bin:/usr/lib/jvm/java-1.8-openjdk/bin
 ENV PYTHONPATH $PYTHONPATH:/py/lib/python3.7/site-packages
+
+RUN ln -s /home/.cache/ivy2 /home/.ivy2
+RUN ln -s /home/.cache/sbt /home/.sbt
+VOLUME /home/.cache 
 
 CMD [ "fish" ]
 WORKDIR /home
 RUN adduser pda -h /home -D \
   && chown -R pda ~pda
 USER pda
-
-# install neovim plugins
 RUN nvim --noplugin +PlugInstall +qall \
   && nvim +UpdateRemotePlugins +qall
