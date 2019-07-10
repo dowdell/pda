@@ -42,7 +42,7 @@ set termguicolors
 " General [ •  ★ › ▸ ▶ ⁞ Ξ ]
 set colorcolumn=80 " ruler
 set completeopt=longest,menuone
-set dir=~/.swp " location of swapfiles
+set dir=~/.cache/nvim-swap
 set foldlevelstart=2
 set foldmethod=syntax
 set ignorecase " case-insensitive search
