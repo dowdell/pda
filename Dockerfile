@@ -40,6 +40,8 @@ RUN apk add --no-cache neovim python3-dev
 RUN pip3 install --prefix /py --no-cache-dir \
   awscli \
   awslogs \
+  httpie-aws-authv4 \
+  httpie-jwt-auth \
   icdiff \
   neovim
 
@@ -78,6 +80,7 @@ RUN apk add --no-cache \
   ipcalc \
   jq \
   less \
+  moreutils \
   neovim \
   terraform
 COPY              ./home              /home/
@@ -89,13 +92,15 @@ COPY --from=scala  /usr/local/sbt     /usr/local/
 COPY --from=scala  /usr/local/scala-* /usr/local/
 COPY --from=python /py                /py
 
+ENV EDITOR nvim
+ENV JWT_AUTH_TOKEN ""
 ENV PYTHONPATH $PYTHONPATH:/py/lib/python3.7/site-packages
 ENV PATH $PATH:./node_modules/.bin:/py/bin:/usr/lib/jvm/java-1.8-openjdk/bin
 RUN adduser pda -h /home -D && chown -R pda ~pda
 
 USER pda
 WORKDIR /home
-VOLUME /home/.cache 
+VOLUME /home/.cache
 CMD [ "fish" ]
 
 RUN nvim --noplugin +PlugInstall +qall \
