@@ -1,5 +1,7 @@
 # Portable Development Assistant
 
+[![Build Status](https://drone.nwd.me/api/badges/dowdell/pda/status.svg)](https://drone.nwd.me/dowdell/pda)
+
   - awscli
   - awslogs - because the web UI is horrible
   - bash - because `coursier` requires it
