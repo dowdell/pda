@@ -82,7 +82,9 @@ RUN apk add --no-cache \
   less \
   moreutils \
   neovim \
-  terraform
+  terraform \
+  tig
+
 COPY              ./home              /home/
 COPY              ./bin/exa           /usr/local/bin/
 COPY --from=dev    /opt/rg            /usr/local/bin/

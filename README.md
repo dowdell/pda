@@ -18,6 +18,7 @@
   - [ripgrep][rg] - line oriented search tool
   - rust & cargo
   - [terraform][terra] - infrastructure management
+  - [tig][tig] - text-mode interface for git
 
 [calc]:  https://linux.die.net/man/1/ipcalc
 [exa]:   https://the.exa.website/
@@ -34,6 +35,7 @@
 [rg]:    https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md#user-guide
 [scala]: https://www.scala-lang.org/api/2.12.8/
 [terra]: https://www.terraform.io/docs/cli-index.html
+[tig]:   https://jonas.github.io/tig/
 
 ## Usage
 
