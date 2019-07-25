@@ -6,10 +6,8 @@
   - [exa][exa] - a modern version of `ls`
   - [fish][fish] - user-friendly command line shell
   - [fzf][fzf] - general purpose fuzzy finder
-  - [httpie][pie] - HTTP client
+  - [httpie][http] - HTTP client
     - pipe JSON responses to [jq][jq] or [jiq][jiq] (interactive)
-    - `get`, `post`, etc to send `$JWT` in the `Authorization` header
-    - `GET`, `POST`, etc to do so verbosely
   - icdiff
   - [ipcalc][calc] - simple manipulation of IP addresses
   - [java 8][jdk8], [scala 2.12][scala], and `coursier`
@@ -25,12 +23,12 @@
 [exa]:   https://the.exa.website/
 [fish]:  https://fishshell.com/docs/current/tutorial.html
 [fzf]:   https://github.com/junegunn/fzf#-
+[http]:   https://httpie.org/doc#usage
 [jdk8]:  https://openjdk.java.net/projects/jdk8/
 [jiq]:   https://github.com/fiatjaf/jiq
 [jq]:    https://stedolan.github.io/jq/manual/
 [node]:  https://nodejs.org/dist/latest-v10.x/docs/api/
 [npm]:   https://docs.npmjs.com/cli-documentation/
-[pie]:   https://httpie.org/doc#usage
 [py3]:   https://docs.python.org/3/library/
 [nvim]:  https://neovim.io/doc/user/
 [rg]:    https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md#user-guide
