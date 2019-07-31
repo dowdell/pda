@@ -17,6 +17,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-dirvish' " use `-` to naviate directories
 Plug 'moll/vim-node' " use `gf` on file paths
+Plug 'janko/vim-test'
 "Plug 'geekjuice/vim-mocha' " use `,t` and `,T` to run test suites (mocha and istanbul)
 
 " Look and Feel
@@ -63,7 +64,7 @@ let g:dirvish_mode = ':sort ,^.*[\/],' " directory explorer
 let g:gitgutter_map_keys=1
 let g:gitgutter_signs=1
 let g:python3_host_prog = '/usr/bin/python3'
-let mapleader=" "
+let mapleader=","
 
 " ale
 let g:airline#extensions#ale#enabled = 1
@@ -93,6 +94,12 @@ autocmd BufNewFile,BufRead *.apib set nonu | set spell | set lbr | set textwidth
 let g:markdown_fenced_languages = ['html', 'json', 'css', 'javascript', 'elm', 'vim']
 autocmd BufNewFile,BufRead *.md set nonu | set spell | set wrap | set lbr | set textwidth=0 | set nolist | set showbreak=↳
 
+" fuzzy finder
+map <C-p> :GFiles<CR>
+
+" run tests
+map <leader>t :TestFile<CR>
+
 " shift lines
 nnoremap <C-k> :m .-2<CR>==
 nnoremap <C-j> :m .+1<CR>==
@@ -100,6 +107,3 @@ inoremap <C-j> <Esc>:m .+1<CR>==gi
 inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
-
-" fuzzy finder
-map <C-p> :GFiles<CR>
