@@ -106,6 +106,6 @@ WORKDIR /home
 VOLUME /home/.cache
 CMD [ "fish" ]
 
-RUN nvim --noplugin +PlugInstall +qall \
-  && nvim +UpdateRemotePlugins +qall \
+RUN nvim -n --noplugin +PlugInstall +qall \
+  && nvim -n +UpdateRemotePlugins +qall \
   && rm /home/.bashrc /home/.fzf.bash
