@@ -11,7 +11,8 @@ RUN apk add --no-cache \
   npm \
   openjdk8 \
   python3 \
-  rust
+  rust \
+  zip
 
 #
 #
