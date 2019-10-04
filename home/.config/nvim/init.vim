@@ -17,8 +17,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-dirvish' " use `-` to naviate directories
 Plug 'moll/vim-node' " use `gf` on file paths
-Plug 'janko/vim-test'
-"Plug 'geekjuice/vim-mocha' " use `,t` and `,T` to run test suites (mocha and istanbul)
 
 " Look and Feel
 Plug 'airblade/vim-gitgutter'
@@ -26,7 +24,7 @@ Plug 'flazz/vim-colorschemes'
 Plug 'itchyny/lightline.vim'
 
 " Utilities
-"Plug 'janko/vim-test'
+Plug 'janko/vim-test'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " autocomplete / suggestions
 Plug 'w0rp/ale' " asynchronous linting engine
 Plug 'aloiscochard/sarsi' " sbt quickfix
@@ -99,6 +97,7 @@ autocmd BufNewFile,BufRead *.md set nonu | set spell | set wrap | set lbr | set 
 map <C-p> :GFiles<CR>
 
 " run tests
+let test#javascript#mocha#file_pattern = '\.js'
 map <leader>t :TestFile<CR>
 
 " shift lines
