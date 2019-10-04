@@ -39,6 +39,7 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 colorscheme materialbox
 set background=dark " for color scheme
 set termguicolors
+hi Folded guibg=#666
 
 " General [ •  ★ › ▸ ▶ ⁞ Ξ ]
 set colorcolumn=80 " ruler
