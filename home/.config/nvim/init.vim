@@ -27,7 +27,6 @@ Plug 'itchyny/lightline.vim'
 Plug 'janko/vim-test'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " autocomplete / suggestions
 Plug 'w0rp/ale' " asynchronous linting engine
-Plug 'aloiscochard/sarsi' " sbt quickfix
 
 call plug#end()
 

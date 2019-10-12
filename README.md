@@ -4,7 +4,6 @@
 
   - awscli
   - awslogs - because the web UI is horrible
-  - bash - because `coursier` requires it
   - [exa][exa] - a modern version of `ls`
   - [fish][fish] - user-friendly command line shell
   - [fzf][fzf] - general purpose fuzzy finder
@@ -12,7 +11,6 @@
     - pipe JSON responses to [jq][jq] or [jiq][jiq] (interactive)
   - icdiff
   - [ipcalc][calc] - simple manipulation of IP addresses
-  - [java 8][jdk8], [scala 2.12][scala], and `coursier`
   - less
   - [neovim][nvim] - text editor
   - [node 10][node] & [npm][npm]
@@ -27,7 +25,6 @@
 [fish]:  https://fishshell.com/docs/current/tutorial.html
 [fzf]:   https://github.com/junegunn/fzf#-
 [http]:   https://httpie.org/doc#usage
-[jdk8]:  https://openjdk.java.net/projects/jdk8/
 [jiq]:   https://github.com/fiatjaf/jiq
 [jq]:    https://stedolan.github.io/jq/manual/
 [node]:  https://nodejs.org/dist/latest-v10.x/docs/api/
@@ -35,7 +32,6 @@
 [py3]:   https://docs.python.org/3/library/
 [nvim]:  https://neovim.io/doc/user/
 [rg]:    https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md#user-guide
-[scala]: https://www.scala-lang.org/api/2.12.8/
 [terra]: https://www.terraform.io/docs/cli-index.html
 [tig]:   https://jonas.github.io/tig/
 

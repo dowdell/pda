@@ -2,14 +2,12 @@
 #
 FROM alpine:edge as base
 RUN apk add --no-cache \
-  bash \
   cargo \
   git \
   groff \
   mdocml-apropos \
   nodejs \
   npm \
-  openjdk8 \
   python3 \
   rust \
   zip
@@ -48,30 +46,6 @@ RUN pip3 install --prefix /py --no-cache-dir \
 
 #
 #
-FROM dev as scala
-ARG SCALA_VERSION
-ARG SBT_VERSION
-ENV SCALA_VERSION ${SCALA_VERSION:-2.12.8}
-ENV SBT_VERSION ${SBT_VERSION:-1.2.8}
-RUN apk add --no-cache ncurses
-RUN wget -qO - http://downloads.typesafe.com/scala/$SCALA_VERSION/scala-$SCALA_VERSION.tgz | tar xfz - -C /usr/local
-RUN wget -qO - https://github.com/sbt/sbt/releases/download/v$SBT_VERSION/sbt-$SBT_VERSION.tgz | tar xfz - -C /usr/local
-RUN wget -qO /usr/local/bin/coursier https://git.io/coursier \
-  && chmod +x /usr/local/bin/coursier \
-  && coursier bootstrap \
-    --java-opt -XX:+UseG1GC \
-    --java-opt -XX:+UseStringDeduplication  \
-    --java-opt -Xss4m \
-    --java-opt -Xms1G \
-    --java-opt -Xmx4G  \
-    --java-opt -Dmetals.client=coc.vim \
-    org.scalameta:metals_2.12:0.7.0 \
-    -r bintray:scalacenter/releases \
-    -r sonatype:snapshots \
-    -o /usr/local/bin/metals-vim -f
-
-#
-#
 FROM base as pda
 RUN npm install -g neovim
 RUN apk add --no-cache \
@@ -90,15 +64,12 @@ COPY              ./home              /home/
 COPY              ./bin/exa           /usr/local/bin/
 COPY --from=dev    /opt/rg            /usr/local/bin/
 COPY --from=golang /go/bin/jiq        /usr/local/bin/
-COPY --from=scala  /usr/local/bin/*   /usr/local/bin/
-COPY --from=scala  /usr/local/sbt     /usr/local/
-COPY --from=scala  /usr/local/scala-* /usr/local/
 COPY --from=python /py                /py
 
 ENV EDITOR nvim
 ENV JWT_AUTH_TOKEN ""
 ENV PYTHONPATH $PYTHONPATH:/py/lib/python3.7/site-packages
-ENV PATH $PATH:./node_modules/.bin:/py/bin:/usr/lib/jvm/java-1.8-openjdk/bin
+ENV PATH $PATH:./node_modules/.bin:/py/bin
 RUN adduser pda -h /home -D && chown -R pda ~pda
 
 USER pda
@@ -107,5 +78,4 @@ VOLUME /home/.cache
 CMD [ "fish" ]
 
 RUN nvim -n --noplugin +PlugInstall +qall \
-  && nvim -n +UpdateRemotePlugins +qall \
-  && rm /home/.bashrc /home/.fzf.bash
+  && nvim -n +UpdateRemotePlugins +qall
