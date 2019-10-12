@@ -17,6 +17,7 @@
   - [node 10][node] & [npm][npm]
   - [python 3][py3]
   - [ripgrep][rg] - line oriented search tool
+  - rust & cargo
   - [terraform][terra] - infrastructure management
 
 [aws]: https://aws.amazon.com/cli/

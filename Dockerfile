@@ -2,12 +2,14 @@
 #
 FROM alpine:3.10 as base
 RUN apk add --no-cache \
+  cargo \
   git \
   groff \
   mdocml-apropos \
   nodejs \
   npm \
   python3 \
+  rust \
   zip
 
 #
