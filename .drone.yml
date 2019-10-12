@@ -9,4 +9,6 @@ steps:
     username: { from_secret: docker_username }
     password: { from_secret: docker_password }
     repo: nwd.me/pda
-    tags: [ latest ]
+    tags:
+      - ${DRONE_BRANCH}
+      - latest
