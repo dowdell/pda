@@ -55,6 +55,7 @@ RUN apk add --no-cache \
   less \
   moreutils \
   neovim \
+  openssh-client \
   terraform \
   tig
 
