@@ -1,6 +1,6 @@
 #
 #
-FROM alpine:edge as base
+FROM alpine:3.10 as base
 RUN apk add --no-cache \
   git \
   groff \
