@@ -2,30 +2,34 @@
 
 [![Build Status](https://drone.nwd.me/api/badges/dowdell/pda/status.svg)](https://drone.nwd.me/dowdell/pda)
 
-  - awscli
-  - awslogs - because the web UI is horrible
+  - [awscli][aws] - AWS Command Line Interface
+  - [awslogs][logs] - because the web UI is horrible
   - [exa][exa] - a modern version of `ls`
   - [fish][fish] - user-friendly command line shell
   - [fzf][fzf] - general purpose fuzzy finder
   - [git][git] & [tig][tig] (text-mode interface)
   - [httpie][http] - HTTP client
     - pipe JSON responses to [jq][jq]
-  - icdiff
+  - [icdiff][diff] - improved colored diff
   - [ipcalc][calc] - simple manipulation of IP addresses
-  - less
+  - [less][less] - terminal pager
   - [neovim][nvim] - text editor
   - [node 10][node] & [npm][npm]
   - [python 3][py3]
   - [ripgrep][rg] - line oriented search tool
   - [terraform][terra] - infrastructure management
 
+[aws]: https://aws.amazon.com/cli/
 [calc]:  https://linux.die.net/man/1/ipcalc
+[diff]:  https://github.com/jeffkaufman/icdiff
 [exa]:   https://the.exa.website/
 [fish]:  https://fishshell.com/docs/current/tutorial.html
 [fzf]:   https://github.com/junegunn/fzf#-
 [git]:   https://git-scm.com/docs
 [http]:  https://httpie.org/doc#usage
 [jq]:    https://stedolan.github.io/jq/manual/
+[less]:  https://en.wikipedia.org/wiki/Less_(Unix)
+[logs]:  https://github.com/jorgebastida/awslogs
 [node]:  https://nodejs.org/dist/latest-v10.x/docs/api/
 [npm]:   https://docs.npmjs.com/cli-documentation/
 [py3]:   https://docs.python.org/3/library/
