@@ -46,6 +46,7 @@ RUN apk add --no-cache go
 FROM base as pda
 RUN npm install -g neovim
 RUN apk add --no-cache \
+  bash \
   fish \
   fzf \
   httpie \
