@@ -22,16 +22,6 @@ RUN rm -r /tmp/ripgrep*
 
 #
 #
-FROM dev as golang
-ENV GOROOT /usr/lib/go
-ENV GOPATH /go
-ENV PATH /go/bin:$PATH
-RUN mkdir -p ${GOPATH}/src ${GOPATH}/bin
-RUN apk add --no-cache go
-RUN go get -u github.com/fiatjaf/jiq/cmd/jiq
-
-#
-#
 FROM dev as python
 RUN apk add --no-cache neovim python3-dev
 RUN pip3 install --prefix /py --no-cache-dir \
@@ -41,6 +31,16 @@ RUN pip3 install --prefix /py --no-cache-dir \
   httpie-jwt-auth \
   icdiff \
   neovim
+
+#
+#
+FROM dev as golang
+ENV GOROOT /usr/lib/go
+ENV GOPATH /go
+ENV PATH /go/bin:$PATH
+RUN mkdir -p ${GOPATH}/src ${GOPATH}/bin
+RUN apk add --no-cache go
+RUN go get -u github.com/fiatjaf/jiq/cmd/jiq
 
 #
 #
