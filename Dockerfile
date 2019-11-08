@@ -40,7 +40,6 @@ ENV GOPATH /go
 ENV PATH /go/bin:$PATH
 RUN mkdir -p ${GOPATH}/src ${GOPATH}/bin
 RUN apk add --no-cache go
-RUN go get -u github.com/fiatjaf/jiq/cmd/jiq
 
 #
 #
@@ -62,7 +61,6 @@ RUN apk add --no-cache \
 COPY              ./home              /home/
 COPY              ./bin/exa           /usr/local/bin/
 COPY --from=dev    /opt/rg            /usr/local/bin/
-COPY --from=golang /go/bin/jiq        /usr/local/bin/
 COPY --from=python /py                /py
 
 ENV EDITOR nvim

@@ -7,8 +7,9 @@
   - [exa][exa] - a modern version of `ls`
   - [fish][fish] - user-friendly command line shell
   - [fzf][fzf] - general purpose fuzzy finder
+  - [git][git] & [tig][tig] (text-mode interface)
   - [httpie][http] - HTTP client
-    - pipe JSON responses to [jq][jq] or [jiq][jiq] (interactive)
+    - pipe JSON responses to [jq][jq]
   - icdiff
   - [ipcalc][calc] - simple manipulation of IP addresses
   - less
@@ -17,14 +18,13 @@
   - [python 3][py3]
   - [ripgrep][rg] - line oriented search tool
   - [terraform][terra] - infrastructure management
-  - [tig][tig] - text-mode interface for git
 
 [calc]:  https://linux.die.net/man/1/ipcalc
 [exa]:   https://the.exa.website/
 [fish]:  https://fishshell.com/docs/current/tutorial.html
 [fzf]:   https://github.com/junegunn/fzf#-
-[http]:   https://httpie.org/doc#usage
-[jiq]:   https://github.com/fiatjaf/jiq
+[git]:   https://git-scm.com/docs
+[http]:  https://httpie.org/doc#usage
 [jq]:    https://stedolan.github.io/jq/manual/
 [node]:  https://nodejs.org/dist/latest-v10.x/docs/api/
 [npm]:   https://docs.npmjs.com/cli-documentation/
