@@ -13,6 +13,7 @@
   - [icdiff][diff] - improved colored diff
   - [ipcalc][calc] - simple manipulation of IP addresses
   - [less][less] - terminal pager
+  - make
   - [neovim][nvim] - text editor
   - [node 10][node] & [npm][npm]
   - [python 3][py3]

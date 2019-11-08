@@ -52,6 +52,7 @@ RUN apk add --no-cache \
   ipcalc \
   jq \
   less \
+  make \
   moreutils \
   neovim \
   openssh-client \
