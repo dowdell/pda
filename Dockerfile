@@ -1,6 +1,6 @@
 #
 #
-FROM alpine:3.10 as base
+FROM alpine:edge as base
 RUN apk add --no-cache \
   git \
   groff \
@@ -47,6 +47,9 @@ FROM base as pda
 RUN npm install -g neovim
 RUN apk add --no-cache \
   bash \
+  curl \
+  docker-cli \
+  docker-compose \
   fish \
   fzf \
   httpie \
