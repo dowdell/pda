@@ -1,5 +1,18 @@
 #
 #
+FROM python:3.5-alpine3.10 as python
+ENV PATH $PATH:/py/bin
+RUN apk add --no-cache gcc musl-dev
+RUN pip3 install --prefix /py --no-cache-dir \
+  awscli \
+  awslogs \
+  httpie-aws-authv4 \
+  httpie-jwt-auth \
+  icdiff \
+  neovim
+
+#
+#
 FROM alpine:edge as base
 RUN apk add --no-cache \
   git \
@@ -19,18 +32,6 @@ RUN wget -q https://github.com/BurntSushi/ripgrep/releases/download/0.10.0/ripgr
 RUN tar xzf ripgrep*
 RUN mv ripgrep*/rg /opt/rg
 RUN rm -r /tmp/ripgrep*
-
-#
-#
-FROM dev as python
-RUN apk add --no-cache neovim python3-dev
-RUN pip3 install --prefix /py --no-cache-dir \
-  awscli \
-  awslogs \
-  httpie-aws-authv4 \
-  httpie-jwt-auth \
-  icdiff \
-  neovim
 
 #
 #
