@@ -5,11 +5,11 @@ ENV PATH $PATH:/py/bin
 RUN apk add --no-cache gcc musl-dev
 RUN pip3 install --prefix /py --no-cache-dir \
   awscli \
-  awslogs \
   httpie-aws-authv4 \
   httpie-jwt-auth \
   icdiff \
   neovim
+#  awslogs requires botocore-1.13.18 and python-dateutil-2.8.1, breaks httpie
 
 #
 #
