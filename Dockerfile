@@ -13,42 +13,23 @@ RUN pip3 install --prefix /py --no-cache-dir \
 
 #
 #
-FROM alpine:edge as base
+FROM alpine:3.10
 RUN apk add --no-cache \
+  bash \
+  curl \
   git \
   groff \
   mdocml-apropos \
+  less \
+  make \
+  moreutils \
+  neovim \
   nodejs \
   npm \
   python3 \
   zip
-
-#
-#
-FROM base as dev
-RUN apk add --no-cache gcc musl-dev
-WORKDIR /tmp
-RUN wget -q https://github.com/BurntSushi/ripgrep/releases/download/0.10.0/ripgrep-0.10.0-x86_64-unknown-linux-musl.tar.gz
-RUN tar xzf ripgrep*
-RUN mv ripgrep*/rg /opt/rg
-RUN rm -r /tmp/ripgrep*
-
-#
-#
-FROM dev as golang
-ENV GOROOT /usr/lib/go
-ENV GOPATH /go
-ENV PATH /go/bin:$PATH
-RUN mkdir -p ${GOPATH}/src ${GOPATH}/bin
-RUN apk add --no-cache go
-
-#
-#
-FROM base as pda
-RUN npm install -g neovim
 RUN apk add --no-cache \
-  bash \
-  curl \
+  --repository http://dl-3.alpinelinux.org/alpine/edge/testing \
   docker-cli \
   docker-compose \
   fish \
@@ -56,23 +37,21 @@ RUN apk add --no-cache \
   httpie \
   ipcalc \
   jq \
-  less \
-  make \
-  moreutils \
-  neovim \
   openssh-client \
+  ripgrep \
   terraform \
   tig
+RUN npm install -g neovim
 
 COPY              ./home              /home/
 COPY              ./bin/exa           /usr/local/bin/
-COPY --from=dev    /opt/rg            /usr/local/bin/
 COPY --from=python /py                /py
 
-ENV EDITOR nvim
-ENV JWT_AUTH_TOKEN ""
-ENV PYTHONPATH $PYTHONPATH:/py/lib/python3.7/site-packages
+ENV PYTHONPATH /py/lib/python3.7/site-packages
 ENV PATH $PATH:./node_modules/.bin:/py/bin
+ENV JWT_AUTH_TOKEN ""
+ENV EDITOR nvim
+
 RUN adduser pda -h /home -D && chown -R pda ~pda
 
 USER pda
@@ -80,5 +59,5 @@ WORKDIR /home
 VOLUME /home/.cache
 CMD [ "fish" ]
 
-RUN nvim -n --noplugin +PlugInstall +qall \
-  && nvim -n +UpdateRemotePlugins +qall
+RUN nvim -n --noplugin +'PlugInstall --sync' +qa \
+  && nvim -n +'UpdateRemotePlugins --sync' +qa
