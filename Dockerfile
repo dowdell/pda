@@ -1,6 +1,6 @@
 #
 #
-FROM python:3.5-alpine3.10 as python
+FROM python:3.7-alpine3.10 as python
 ENV PATH $PATH:/py/bin
 RUN apk add --no-cache gcc musl-dev
 RUN pip3 install --prefix /py --no-cache-dir \
