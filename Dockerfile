@@ -42,6 +42,7 @@ RUN apk add --no-cache \
   terraform \
   tig
 RUN npm install -g neovim
+RUN ln -s /usr/bin/python3 /usr/local/bin/python # for `icdiff`
 
 COPY              ./home              /home/
 COPY              ./bin/exa           /usr/local/bin/
