@@ -45,6 +45,7 @@ RUN npm install -g neovim
 RUN ln -s /usr/bin/python3 /usr/local/bin/python # for `icdiff`
 
 COPY              ./home              /home/
+COPY              ./bin/entrypoint.sh /entrypoint.sh
 COPY              ./bin/exa           /usr/local/bin/
 COPY --from=python /py                /py
 
@@ -62,3 +63,6 @@ CMD [ "fish" ]
 
 RUN nvim -n --noplugin +'PlugInstall --sync' +qa \
   && nvim -n +'UpdateRemotePlugins --sync' +qa
+
+USER root
+ENTRYPOINT [ "/entrypoint.sh" ]
