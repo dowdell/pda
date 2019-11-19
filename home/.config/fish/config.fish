@@ -8,6 +8,8 @@ if not set -q abbrs_initialized
   abbr vi   'nvim'
   abbr vim  'nvim'
   abbr agent 'eval (ssh-agent -c); ssh-add'
+  abbr d 'docker'
+  abbr dc 'docker-compose'
   set -U abbrs_initialized
 end
 
