@@ -7,5 +7,8 @@ if not set -q abbrs_initialized
   abbr ls   'exa -l'
   abbr vi   'nvim'
   abbr vim  'nvim'
+  abbr agent 'eval (ssh-agent -c); ssh-add'
   set -U abbrs_initialized
 end
+
+fish_vi_key_bindings

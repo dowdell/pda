@@ -23,6 +23,7 @@ RUN apk add --no-cache \
   less \
   make \
   moreutils \
+  ncurses \
   neovim \
   nodejs \
   npm \
