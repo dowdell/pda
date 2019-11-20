@@ -7,6 +7,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat' " use `.`
+Plug 'tpope/vim-fugitive' " git
 
 " Languages
 Plug 'hashivim/vim-terraform'
@@ -63,6 +64,10 @@ let g:gitgutter_map_keys=1
 let g:gitgutter_signs=1
 let g:python3_host_prog = '/usr/bin/python3'
 let mapleader=","
+let g:lightline = {
+  \   'colorscheme': 'materia',
+  \   'component_function': { 'filename': 'LightlineFilename' }
+  \ }
 
 " ale
 let g:airline#extensions#ale#enabled = 1
@@ -106,3 +111,12 @@ inoremap <C-j> <Esc>:m .+1<CR>==gi
 inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
+
+function! LightlineFilename()
+  let root = fnamemodify(get(b:, 'git_dir'), ':h')
+  let path = expand('%:p')
+  if path[:len(root)-1] ==# root
+    return path[len(root)+1:]
+  endif
+  return expand('%')
+endfunction
