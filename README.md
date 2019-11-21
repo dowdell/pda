@@ -3,7 +3,7 @@
 [![Build Status](https://drone.nwd.me/api/badges/dowdell/pda/status.svg)](https://drone.nwd.me/dowdell/pda)
 
   - [awscli][aws] - AWS Command Line Interface
-  - [awslogs][logs] - because the web UI is horrible
+  - ~[awslogs][logs] - because the web UI is horrible~
   - [exa][exa] - a modern version of `ls`
   - [fish][fish] - user-friendly command line shell
   - [fzf][fzf] - general purpose fuzzy finder
