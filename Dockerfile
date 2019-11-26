@@ -42,7 +42,7 @@ RUN apk add --no-cache \
   ripgrep \
   terraform \
   tig
-RUN npm install -g neovim
+RUN npm install -g neovim fx
 RUN ln -s /usr/bin/python3 /usr/local/bin/python # for `icdiff`
 
 COPY              ./home              /home/

@@ -9,7 +9,7 @@
   - [fzf][fzf] - general purpose fuzzy finder
   - [git][git] & [tig][tig] (text-mode interface)
   - [httpie][http] - HTTP client
-    - pipe JSON responses to [jq][jq]
+    - pipe JSON responses to [jq][jq] or [fx][fx]
   - [icdiff][diff] - improved colored diff
   - [ipcalc][calc] - simple manipulation of IP addresses
   - [less][less] - terminal pager
@@ -25,6 +25,7 @@
 [diff]:  https://github.com/jeffkaufman/icdiff
 [exa]:   https://the.exa.website/
 [fish]:  https://fishshell.com/docs/current/tutorial.html
+[fx]:    https://github.com/antonmedv/fx
 [fzf]:   https://github.com/junegunn/fzf#-
 [git]:   https://git-scm.com/docs
 [http]:  https://httpie.org/doc#usage
