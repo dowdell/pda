@@ -1,7 +1,6 @@
 # Portable Development Assistant [![Build Status](https://drone.nwd.me/api/badges/dowdell/pda/status.svg)](https://drone.nwd.me/dowdell/pda)
 
   - [awscli][aws] - AWS Command Line Interface
-  - ~[awslogs][logs] - because the web UI is horrible~
   - [exa][exa] - a modern version of `ls`
   - [fish][fish] - user-friendly command line shell
   - [fzf][fzf] - general purpose fuzzy finder
@@ -29,7 +28,6 @@
 [http]:  https://httpie.org/doc#usage
 [jq]:    https://stedolan.github.io/jq/manual/
 [less]:  https://en.wikipedia.org/wiki/Less_(Unix)
-[logs]:  https://github.com/jorgebastida/awslogs
 [node]:  https://nodejs.org/dist/latest-v10.x/docs/api/
 [npm]:   https://docs.npmjs.com/cli-documentation/
 [py3]:   https://docs.python.org/3/library/

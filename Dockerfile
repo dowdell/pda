@@ -1,20 +1,19 @@
 #
-#
-FROM python:3.7-alpine3.10 as python
+FROM python:3.8-alpine3.11 as python
 ENV PATH $PATH:/py/bin
-RUN apk add --no-cache gcc musl-dev
+RUN apk add --no-cache gcc musl-dev \
+  --repository http://dl-3.alpinelinux.org/alpine/edge/community
 RUN pip3 install --prefix /py --no-cache-dir \
   awscli \
   httpie-aws-authv4 \
   httpie-jwt-auth \
   icdiff \
   neovim
-#  awslogs requires botocore-1.13.18 and python-dateutil-2.8.1, breaks httpie
 
 #
-#
-FROM alpine:3.10
+FROM alpine:3.11
 RUN apk add --no-cache \
+  --repository http://dl-3.alpinelinux.org/alpine/edge/community \
   bash \
   curl \
   git \
@@ -22,7 +21,6 @@ RUN apk add --no-cache \
   mdocml-apropos \
   less \
   make \
-  moreutils \
   ncurses \
   neovim \
   nodejs \
@@ -30,9 +28,7 @@ RUN apk add --no-cache \
   python3 \
   zip
 RUN apk add --no-cache \
-  --repository http://dl-3.alpinelinux.org/alpine/edge/testing \
-  docker-cli \
-  docker-compose \
+  --repository http://dl-3.alpinelinux.org/alpine/edge/community \
   fish \
   fzf \
   httpie \
@@ -50,7 +46,7 @@ COPY              ./bin/entrypoint.sh /entrypoint.sh
 COPY              ./bin/exa           /usr/local/bin/
 COPY --from=python /py                /py
 
-ENV PYTHONPATH /py/lib/python3.7/site-packages
+ENV PYTHONPATH /py/lib/python3.8/site-packages
 ENV PATH $PATH:./node_modules/.bin:/py/bin
 ENV JWT_AUTH_TOKEN ""
 ENV EDITOR nvim
