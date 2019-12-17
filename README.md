@@ -1,6 +1,4 @@
-# Portable Development Assistant
-
-[![Build Status](https://drone.nwd.me/api/badges/dowdell/pda/status.svg)](https://drone.nwd.me/dowdell/pda)
+# Portable Development Assistant [![Build Status](https://drone.nwd.me/api/badges/dowdell/pda/status.svg)](https://drone.nwd.me/dowdell/pda)
 
   - [awscli][aws] - AWS Command Line Interface
   - ~[awslogs][logs] - because the web UI is horrible~
