@@ -4,6 +4,7 @@ ENV PATH $PATH:/py/bin
 RUN apk add --no-cache gcc musl-dev
 RUN pip3 install --prefix /py --no-cache-dir \
   awscli \
+  aws-shell \
   httpie-aws-authv4 \
   httpie-jwt-auth \
   neovim \
@@ -43,6 +44,9 @@ COPY              ./home              /home/
 COPY              ./bin/entrypoint.sh /entrypoint.sh
 COPY              ./bin/exa           /usr/local/bin/
 COPY --from=python /py                /py
+
+# for aws-shell
+RUN ln -s /usr/bin/python3 /usr/local/bin/python
 
 ENV PYTHONPATH /py/lib/python3.8/site-packages
 ENV PATH $PATH:./node_modules/.bin:/py/bin

@@ -18,6 +18,7 @@
   - [ydiff][ydiff] - colored, incremental diff
 
 [aws]: https://aws.amazon.com/cli/
+[awssh]: https://github.com/awslabs/aws-shell
 [calc]:  https://linux.die.net/man/1/ipcalc
 [exa]:   https://the.exa.website/
 [fish]:  https://fishshell.com/docs/current/tutorial.html
