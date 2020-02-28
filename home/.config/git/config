@@ -16,3 +16,6 @@
   default = simple
 [fetch]
   prune = true
+[tig]
+  vertical-split = no
+  tab-size = 2
