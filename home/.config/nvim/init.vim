@@ -21,7 +21,7 @@ Plug 'moll/vim-node' " use `gf` on file paths
 
 " Look and Feel
 Plug 'airblade/vim-gitgutter'
-Plug 'flazz/vim-colorschemes'
+Plug 'joshdick/onedark.vim'
 Plug 'itchyny/lightline.vim'
 
 " Utilities
@@ -31,15 +31,8 @@ Plug 'w0rp/ale' " asynchronous linting engine
 
 call plug#end()
 
-" Colors
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-colorscheme materialbox
-set background=dark " for color scheme
-set termguicolors
-hi Folded guibg=#666
-
 " General [ •  ★ › ▸ ▶ ⁞ Ξ ]
+
 set colorcolumn=80 " ruler
 set completeopt=longest,menuone
 set dir=~/.cache/nvim-swap
@@ -56,7 +49,6 @@ set splitright
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 set updatetime=100 " faster updates for vim-gitgutter
 
-let g:lightline = { 'colorscheme': 'materia' }
 let g:ale_sign_error = '››'
 let g:coverage_show_uncovered = 0
 let g:dirvish_mode = ':sort ,^.*[\/],' " directory explorer
@@ -64,10 +56,6 @@ let g:gitgutter_map_keys=1
 let g:gitgutter_signs=1
 let g:python3_host_prog = '/usr/bin/python3'
 let mapleader=","
-let g:lightline = {
-  \   'colorscheme': 'materia',
-  \   'component_function': { 'filename': 'LightlineFilename' }
-  \ }
 
 " ale
 let g:airline#extensions#ale#enabled = 1
@@ -120,3 +108,23 @@ function! LightlineFilename()
   endif
   return expand('%')
 endfunction
+
+" Colors
+
+let g:onedark_hide_endofbuffer=1
+let g:onedark_terminal_italics=1
+let g:lightline = {                                                                                                                                                  
+  \   'colorscheme': 'onedark',
+  \   'component_function': { 'filename': 'LightlineFilename' }
+  \ }
+
+if (has("nvim"))
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
+
+if (has("termguicolors"))
+  set termguicolors
+endif
+
+set background=dark " for color scheme?
+colorscheme onedark
