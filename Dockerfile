@@ -8,7 +8,8 @@ RUN pip3 install --prefix /py --no-cache-dir \
   httpie-aws-authv4 \
   httpie-jwt-auth \
   icdiff \
-  neovim
+  neovim \
+  ydiff
 
 #
 FROM alpine:3.11

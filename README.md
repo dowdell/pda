@@ -16,6 +16,7 @@
   - [python 3][py3]
   - [ripgrep][rg] - line oriented search tool
   - [terraform][terra] - infrastructure management
+  - [ydiff][ydiff] - colored, incremental diff
 
 [aws]: https://aws.amazon.com/cli/
 [calc]:  https://linux.die.net/man/1/ipcalc
@@ -35,6 +36,7 @@
 [rg]:    https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md#user-guide
 [terra]: https://www.terraform.io/docs/cli-index.html
 [tig]:   https://jonas.github.io/tig/
+[ydiff]: https://github.com/ymattw/ydiff
 
 ## Usage
 
