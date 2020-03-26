@@ -58,6 +58,9 @@ WORKDIR /home
 VOLUME /home/.cache
 CMD [ "fish" ]
 
+RUN curl git.io/pure-fish --output /tmp/pure_installer.fish --location --silent
+RUN fish -c 'source /tmp/pure_installer.fish; and install_pure'
+
 RUN nvim -n --noplugin +'PlugInstall --sync' +qa \
   && nvim -n +'UpdateRemotePlugins --sync' +qa
 
