@@ -1,5 +1,5 @@
 scriptencoding utf-8
-set encoding=utf-8
+set encoding = utf-8
 
 call plug#begin('~/.local/share/nvim/site/plugged')
 
@@ -53,9 +53,9 @@ let g:ale_sign_error = '››'
 let g:coverage_show_uncovered = 0
 let g:dirvish_mode = ':sort ,^.*[\/],' " directory explorer
 let g:gitgutter_map_keys=1
-let g:gitgutter_signs=1
+let g:gitgutter_signs = 1
 let g:python3_host_prog = '/usr/bin/python3'
-let mapleader=","
+let mapleader = ","
 
 " ale
 let g:airline#extensions#ale#enabled = 1
@@ -110,21 +110,20 @@ function! LightlineFilename()
 endfunction
 
 " Colors
-
-let g:onedark_hide_endofbuffer=1
-let g:onedark_terminal_italics=1
-let g:lightline = {                                                                                                                                                  
+let g:onedark_hide_endofbuffer = 1
+let g:onedark_terminal_italics = 1
+let g:lightline = {
   \   'colorscheme': 'onedark',
   \   'component_function': { 'filename': 'LightlineFilename' }
   \ }
 
 if (has("nvim"))
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 endif
 
 if (has("termguicolors"))
   set termguicolors
 endif
 
-set background=dark " for color scheme?
+set background = dark " for color scheme?
 colorscheme onedark
