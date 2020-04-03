@@ -1,5 +1,5 @@
 scriptencoding utf-8
-set encoding = utf-8
+set encoding=utf-8
 
 call plug#begin('~/.local/share/nvim/site/plugged')
 
@@ -50,28 +50,28 @@ set splitright
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 set updatetime=100 " faster updates for vim-gitgutter
 
-let g:ale_sign_error = '››'
-let g:coverage_show_uncovered = 0
-let g:dirvish_mode = ':sort ,^.*[\/],' " directory explorer
-let g:gitgutter_map_keys = 0
-let g:gitgutter_signs = 1
-let g:hardtime_default_on = 1
-let g:python3_host_prog = '/usr/bin/python3'
-let mapleader = ","
+let g:ale_sign_error='››'
+let g:coverage_show_uncovered=0
+let g:dirvish_mode=':sort ,^.*[\/],' " directory explorer
+let g:gitgutter_map_keys=0
+let g:gitgutter_signs=1
+let g:hardtime_default_on=1
+let g:python3_host_prog='/usr/bin/python3'
+let mapleader=","
 
 " ale
-let g:airline#extensions#ale#enabled = 1
-let g:ale_sign_column_always = 1
-let g:ale_linters = {
+let g:airline#extensions#ale#enabled=1
+let g:ale_sign_column_always=1
+let g:ale_linters={
 \  'javascript': [ 'standard' ],
 \  'javascript.jsx': [ 'standard' ],
 \  'json': ['jsonlint']
 \}
 
 " terraform
-let g:terraform_fmt_on_save = 0
-let g:terraform_align = 1
-let g:terraform_fold_sections = 1
+let g:terraform_fmt_on_save=0
+let g:terraform_align=1
+let g:terraform_fold_sections=1
 
 " reload changed files
 autocmd FocusGained * :checktime
@@ -84,14 +84,14 @@ autocmd BufWritePre * :%s/\s\+$//e
 autocmd BufNewFile,BufRead *.apib set nonu | set spell | set lbr | set textwidth=0 | set nolist | set showbreak=↳
 
 " Markdown
-let g:markdown_fenced_languages = ['html', 'json', 'css', 'javascript', 'elm', 'vim']
+let g:markdown_fenced_languages=['html', 'json', 'css', 'javascript', 'elm', 'vim']
 autocmd BufNewFile,BufRead *.md set nonu | set spell | set wrap | set lbr | set textwidth=0 | set nolist | set showbreak=↳
 
 " fuzzy finder
 map <C-p> :GFiles<CR>
 
 " run tests
-let test#javascript#mocha#file_pattern = '\.js'
+let test#javascript#mocha#file_pattern='\.js'
 map <leader>t :TestFile<CR>
 
 " shift lines
@@ -103,8 +103,8 @@ vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
 function! LightlineFilename()
-  let root = fnamemodify(get(b:, 'git_dir'), ':h')
-  let path = expand('%:p')
+  let root=fnamemodify(get(b:, 'git_dir'), ':h')
+  let path=expand('%:p')
   if path[:len(root)-1] ==# root
     return path[len(root)+1:]
   endif
@@ -112,20 +112,20 @@ function! LightlineFilename()
 endfunction
 
 " Colors
-let g:onedark_hide_endofbuffer = 1
-let g:onedark_terminal_italics = 1
-let g:lightline = {
+let g:onedark_hide_endofbuffer=1
+let g:onedark_terminal_italics=1
+let g:lightline={
   \   'colorscheme': 'onedark',
   \   'component_function': { 'filename': 'LightlineFilename' }
   \ }
 
 if (has("nvim"))
-  let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
 
 if (has("termguicolors"))
   set termguicolors
 endif
 
-set background = dark " for color scheme?
+set background=dark " for color scheme?
 colorscheme onedark
