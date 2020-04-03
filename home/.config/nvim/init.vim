@@ -18,6 +18,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-dirvish' " use `-` to naviate directories
 Plug 'moll/vim-node' " use `gf` on file paths
+Plug 'takac/vim-hardtime' " disable repeated use of: h, j, k, l and arrow keys
 
 " Look and Feel
 Plug 'airblade/vim-gitgutter'
@@ -54,6 +55,7 @@ let g:coverage_show_uncovered = 0
 let g:dirvish_mode = ':sort ,^.*[\/],' " directory explorer
 let g:gitgutter_map_keys = 0
 let g:gitgutter_signs = 1
+let g:hardtime_default_on = 1
 let g:python3_host_prog = '/usr/bin/python3'
 let mapleader = ","
 
