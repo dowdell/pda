@@ -40,7 +40,7 @@ set foldlevelstart=2
 set foldmethod=syntax
 set ignorecase " case-insensitive search
 set list
-set listchars=tab:▸▸,nbsp:•,extends:»,precedes:«,trail:•
+set listchars=tab:»»,nbsp:•,extends:»,precedes:«,trail:•
 set noshowmode " provided by vim-lightline
 set nowrap
 set number
@@ -52,7 +52,7 @@ set updatetime=100 " faster updates for vim-gitgutter
 let g:ale_sign_error = '››'
 let g:coverage_show_uncovered = 0
 let g:dirvish_mode = ':sort ,^.*[\/],' " directory explorer
-let g:gitgutter_map_keys=1
+let g:gitgutter_map_keys = 0
 let g:gitgutter_signs = 1
 let g:python3_host_prog = '/usr/bin/python3'
 let mapleader = ","
