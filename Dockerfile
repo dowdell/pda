@@ -23,7 +23,6 @@ RUN apk add --no-cache \
   less \
   make \
   ncurses \
-  neovim \
   nodejs \
   npm \
   python3 \
@@ -35,6 +34,8 @@ RUN apk add --no-cache \
   httpie \
   ipcalc \
   jq \
+  neovim \
+  neovim-doc \
   openssh-client \
   ripgrep \
   terraform \
