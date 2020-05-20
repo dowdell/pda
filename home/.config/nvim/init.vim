@@ -56,6 +56,11 @@ let g:dirvish_mode=':sort ,^.*[\/],' " directory explorer
 let g:gitgutter_map_keys=0
 let g:gitgutter_signs=1
 let g:hardtime_default_on=1
+let g:hardtime_allow_different_key=1
+let g:hardtime_maxcount=2
+let g:hardtime_timeout=750
+let g:hardtime_list_of_visual_keys=["h", "j", "k", "l", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
+let g:hardtime_list_of_normal_keys=["h", "j", "k", "l", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
 let g:python3_host_prog='/usr/bin/python3'
 let mapleader=","
 
