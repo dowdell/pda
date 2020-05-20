@@ -21,6 +21,8 @@ RUN apk add --no-cache \
   groff \
   mdocml-apropos \
   less \
+  libuv \
+  libuv-dev \
   make \
   ncurses \
   nodejs \
