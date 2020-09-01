@@ -17,6 +17,7 @@
   - [ripgrep][rg] - line oriented search tool
   - [terraform][terra] - infrastructure management
   - [ydiff][ydiff] - colored, incremental diff
+  - [wuzz][wuzz] - interactive tool for HTTP inspection
 
 [aws]: https://aws.amazon.com/cli/
 [awssh]: https://github.com/awslabs/aws-shell
@@ -38,6 +39,7 @@
 [terra]: https://www.terraform.io/docs/cli-index.html
 [tig]:   https://jonas.github.io/tig/
 [ydiff]: https://github.com/ymattw/ydiff
+[wuzz]:  https://github.com/asciimoo/wuzz
 
 ## Usage
 

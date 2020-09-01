@@ -12,6 +12,8 @@ RUN pip3 install --prefix /py --no-cache-dir \
 
 #
 FROM golang:alpine3.12 as golang
+RUN apk add --no-cache git
+RUN go get github.com/asciimoo/wuzz
 RUN wget -qO- https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 
 # size: ~879MB
@@ -53,6 +55,7 @@ COPY              ./home              /home/
 COPY              ./bin/entrypoint.sh /entrypoint.sh
 COPY              ./bin/exa           /usr/local/bin/
 COPY --from=golang /go/bin/dep        /usr/local/go/bin/dep
+COPY --from=golang /go/bin/wuzz        /usr/local/go/bin/wuzz
 COPY --from=python /py                /py
 
 # for aws-shell
