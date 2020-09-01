@@ -12,6 +12,7 @@ Plug 'tpope/vim-fugitive' " git
 " Languages
 Plug 'hashivim/vim-terraform'
 Plug 'sheerun/vim-polyglot' " includes: pangloss/vim-javascript, elzr/vim-json, elmcast/elm-vim, derekwyatt/vim-scala
+Plug 'fatih/vim-go'
 
 " Navigation
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -72,6 +73,9 @@ let g:ale_linters={
 \  'javascript.jsx': [ 'standard' ],
 \  'json': ['jsonlint']
 \}
+
+" golang
+let g:go_fmt_experimental=1
 
 " terraform
 let g:terraform_fmt_on_save=0

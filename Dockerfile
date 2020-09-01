@@ -10,8 +10,12 @@ RUN pip3 install --prefix /py --no-cache-dir \
   neovim \
   ydiff
 
-# size: ~436MB
-FROM alpine:3.12
+#
+FROM golang:alpine3.12 as golang
+RUN wget -qO- https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+
+# size: ~879MB
+FROM golang:alpine3.12
 RUN apk add --no-cache \
   bash \
   curl \
@@ -26,6 +30,10 @@ RUN apk add --no-cache \
   npm \
   python3 \
   zip
+RUN apk add --no-cache \
+  gcc \
+  moreutils \
+  musl-dev
 RUN apk add --no-cache \
   docker-cli \
   fish \
@@ -44,6 +52,7 @@ RUN npm install -g neovim fx
 COPY              ./home              /home/
 COPY              ./bin/entrypoint.sh /entrypoint.sh
 COPY              ./bin/exa           /usr/local/bin/
+COPY --from=golang /go/bin/dep        /usr/local/go/bin/dep
 COPY --from=python /py                /py
 
 # for aws-shell
@@ -51,6 +60,7 @@ RUN ln -s /usr/bin/python3 /usr/local/bin/python
 
 ENV PYTHONPATH /py/lib/python3.8/site-packages
 ENV PATH $PATH:./node_modules/.bin:/py/bin
+ENV GOPATH /home/.cache/go:/home
 ENV JWT_AUTH_TOKEN ""
 ENV EDITOR nvim
 

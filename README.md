@@ -4,6 +4,7 @@
   - [exa][exa] - a modern version of `ls`
   - [fish][fish] - user-friendly command line shell
   - [fzf][fzf] - general purpose fuzzy finder
+  - [go][go]
   - [git][git] & [tig][tig] (text-mode interface)
   - [httpie][http] - HTTP client
     - pipe JSON responses to [jq][jq] or [fx][fx]
@@ -25,6 +26,7 @@
 [fx]:    https://github.com/antonmedv/fx
 [fzf]:   https://github.com/junegunn/fzf#-
 [git]:   https://git-scm.com/docs
+[go]:    https://golang.org/
 [http]:  https://httpie.org/doc#usage
 [jq]:    https://stedolan.github.io/jq/manual/
 [less]:  https://en.wikipedia.org/wiki/Less_(Unix)
