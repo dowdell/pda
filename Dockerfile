@@ -1,8 +1,7 @@
-#
-FROM python:3.8-alpine3.11 as python
+# size: ~260MB, discarded
+FROM python:alpine3.12 as python
 ENV PATH $PATH:/py/bin
-RUN apk add --no-cache gcc musl-dev \
-  --repository http://dl-3.alpinelinux.org/alpine/edge/community
+RUN apk add --no-cache gcc musl-dev
 RUN pip3 install --prefix /py --no-cache-dir \
   awscli \
   httpie-aws-authv4 \
@@ -11,15 +10,13 @@ RUN pip3 install --prefix /py --no-cache-dir \
   neovim \
   ydiff
 
-#
-FROM alpine:3.11
+# size: ~436MB
+FROM alpine:3.12
 RUN apk add --no-cache \
-  --repository http://dl-3.alpinelinux.org/alpine/edge/community \
   bash \
   curl \
   git \
   groff \
-  mdocml-apropos \
   less \
   libuv \
   libuv-dev \
@@ -30,7 +27,6 @@ RUN apk add --no-cache \
   python3 \
   zip
 RUN apk add --no-cache \
-  --repository http://dl-3.alpinelinux.org/alpine/edge/community \
   fish \
   fzf \
   httpie \
