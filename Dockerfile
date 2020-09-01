@@ -27,6 +27,7 @@ RUN apk add --no-cache \
   python3 \
   zip
 RUN apk add --no-cache \
+  docker-cli \
   fish \
   fzf \
   httpie \
