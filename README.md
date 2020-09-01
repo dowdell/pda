@@ -7,7 +7,6 @@
   - [git][git] & [tig][tig] (text-mode interface)
   - [httpie][http] - HTTP client
     - pipe JSON responses to [jq][jq] or [fx][fx]
-  - [icdiff][diff] - improved colored diff
   - [ipcalc][calc] - simple manipulation of IP addresses
   - [less][less] - terminal pager
   - make
@@ -20,7 +19,6 @@
 
 [aws]: https://aws.amazon.com/cli/
 [calc]:  https://linux.die.net/man/1/ipcalc
-[diff]:  https://github.com/jeffkaufman/icdiff
 [exa]:   https://the.exa.website/
 [fish]:  https://fishshell.com/docs/current/tutorial.html
 [fx]:    https://github.com/antonmedv/fx

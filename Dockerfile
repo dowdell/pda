@@ -6,7 +6,6 @@ RUN pip3 install --prefix /py --no-cache-dir \
   awscli \
   httpie-aws-authv4 \
   httpie-jwt-auth \
-  icdiff \
   neovim \
   ydiff
 
@@ -39,7 +38,6 @@ RUN apk add --no-cache \
   terraform \
   tig
 RUN npm install -g neovim fx
-RUN ln -s /usr/bin/python3 /usr/local/bin/python # for `icdiff`
 
 COPY              ./home              /home/
 COPY              ./bin/entrypoint.sh /entrypoint.sh

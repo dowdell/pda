@@ -1,11 +1,11 @@
 [core]
   excludesfile = ~/.config/git/ignore
 [diff]
-  tool = icdiff
+  tool = ydiff
 [difftool]
   prompt = false
-[difftool "icdiff"]
-  cmd = icdiff $LOCAL $REMOTE
+[difftool "ydiff"]
+  cmd = ydiff $LOCAL $REMOTE
 [merge]
   tool = vimdiff
 [mergetool]
