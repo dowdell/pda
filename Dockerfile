@@ -28,6 +28,7 @@ RUN apk add --no-cache \
   zip
 RUN apk add --no-cache \
   docker-cli \
+  exa \
   fish \
   fzf \
   httpie \
@@ -43,7 +44,6 @@ RUN npm install -g neovim fx
 
 COPY              ./home              /home/
 COPY              ./bin/entrypoint.sh /entrypoint.sh
-COPY              ./bin/exa           /usr/local/bin/
 COPY --from=python /py                /py
 
 # for aws-shell
