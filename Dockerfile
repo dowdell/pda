@@ -49,6 +49,9 @@ COPY --from=python /py                /py
 # for aws-shell
 RUN ln -s /usr/bin/python3 /usr/local/bin/python
 
+RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+RUN mv kubectl /usr/local/bin
+
 ENV PYTHONPATH /py/lib/python3.8/site-packages
 ENV PATH $PATH:./node_modules/.bin:/py/bin
 ENV JWT_AUTH_TOKEN ""
